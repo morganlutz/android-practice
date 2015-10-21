@@ -2,19 +2,42 @@ package com.toggleable.morgan.buttonclickcounter;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Button ourButton;
+    private TextView ourMessage;
+    private int numTimesClicked = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ourButton = (Button) findViewById(R.id.click_button);
+        ourMessage = (TextView) findViewById(R.id.textView);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        View.OnClickListener ourOnClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numTimesClicked = numTimesClicked + 1;
+                String result = "The button got tapped " + numTimesClicked + " time";
+                if(numTimesClicked != 1) {
+                    result += "s";
+                }
+                ourMessage.setText(result);
+            }
+        };
+
+        ourButton.setOnClickListener(ourOnClickListener);
+    }
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -24,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -42,8 +64,9 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Toast toastMessage = Toast.makeText(this, "The settings menu option got tapped", Toast.LENGTH_LONG);
+            Toast toastMessage = Toast.makeText(this, "Text value is now " + ourMessage.getText(), Toast.LENGTH_LONG);
             toastMessage.show();
+            numTimesClicked = 0;
             return true;
         }
 
