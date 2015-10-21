@@ -5,8 +5,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import java.lang.*;
 
 public class MainActivity extends AppCompatActivity {
+
+    private EditText operand1;
+    private EditText operand2;
+    private Button btnAddition;
+    private Button btnSubtraction;
+    private Button btnDivision;
+    private Button btnMultiplication;
+    private TextView txtResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,6 +27,59 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        operand1 = (EditText) findViewById(R.id.editOperand1);
+        operand2 = (EditText) findViewById(R.id.editOperand2);
+        btnAddition = (Button) findViewById(R.id.btnAddition);
+        btnSubtraction = (Button) findViewById(R.id.btnSubtraction);
+        btnDivision = (Button) findViewById(R.id.btnDivision);
+        btnMultiplication = (Button) findViewById(R.id.btnMultiplication);
+        txtResult = (TextView) findViewById(R.id.txtResult);
+
+        btnAddition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Double oper1 = Double.parseDouble(operand1.getText().toString());
+                double oper2 = Double.parseDouble(operand2.getText().toString());
+
+                double result = oper1 + oper2;
+                txtResult.setText(Double.toString(result));
+            }
+        });
+
+        btnSubtraction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double oper1 = Double.parseDouble(operand1.getText().toString());
+                double oper2 = Double.parseDouble(operand2.getText().toString());
+
+                double result = oper1 - oper2;
+                txtResult.setText(Double.toString(result));
+            }
+        });
+
+        btnDivision.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Double oper1 = Double.parseDouble(operand1.getText().toString());
+                double oper2 = Double.parseDouble(operand2.getText().toString());
+
+                double result = oper1 / oper2;
+                txtResult.setText(Double.toString(result));
+            }
+        });
+
+        btnMultiplication.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Double oper1 = Double.parseDouble(operand1.getText().toString());
+                double oper2 = Double.parseDouble(operand2.getText().toString());
+
+                double result = oper1 * oper2;
+                txtResult.setText(Double.toString(result));
+            }
+        });
+
+
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
