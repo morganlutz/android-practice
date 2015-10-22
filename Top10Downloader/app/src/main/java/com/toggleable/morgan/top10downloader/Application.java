@@ -32,4 +32,12 @@ public class Application {
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
     }
+
+    @Override
+    public String toString() {
+        return "Name: " + getName() + "\n" +
+                "Artist: " + getArtist() + "\n" +
+                "Release Date: " + getReleaseDate() + "\n";
+    }
+
 }
