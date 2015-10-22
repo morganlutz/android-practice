@@ -4,4 +4,8 @@
     <string name="title_activity_youtube">YoutubeActivity</string>
     <string name="title_activity_standalone">StandaloneActivity</string>
     <string name="title_activity_maps">Map</string>
+    <string name="button_playVideo">Play Video</string>
+    <string name="button_playPlaylist">Play Playlist</string>
+    <string name="btn_playVideo">Play Single Video</string>
+    <string name="submenu">Standalone Submenu</string>
 </resources>

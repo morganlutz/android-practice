@@ -3,10 +3,30 @@ package com.toggleable.morgan.youtubeapp;
 import android.os.Bundle;
 import android.widget.Toast;
 
-public class YoutubeActivity implements YouTubePlayer.OnInitializedListener {
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
+
+public class YoutubeActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
     private String GOOGLE_API_KEY = "AIzaSyAIAotGMKcwWybFik6mP68UESl99soweog";
     private String YOUTUBE_VIDEO_ID = "q6-ZGAGcJrk";
+
+    @Override
+    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+        Toast.makeText(this, "Cannot initialize Youtube player", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean wasRestored) {
+        youTubePlayer.setPlayerStateChangeListener(playerStateChangeListener);
+        youTubePlayer.setPlaybackEventListener(playbackEventListener);
+
+        if(!wasRestored) {
+            youTubePlayer.cueVideo(YOUTUBE_VIDEO_ID);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,17 +34,8 @@ public class YoutubeActivity implements YouTubePlayer.OnInitializedListener {
         setContentView(R.layout.activity_youtube);
         YouTubePlayerView youTubePlayerView = (YouTubePlayerView) findViewById(R.id.youtube_player);
         youTubePlayerView.initialize(GOOGLE_API_KEY, this);
-        //generate override methods for onInitializationSuccess
-        // change boolean b to boolean wasRestored
-        //youTubePlayer.setPlayerStateChangeListener(playerStateChangeListener);
-        //youTubePlayer.setPlaybackEventListener(playbackEventListener);
-        //if(!wasRestored) {
-        // youTubePlayer.cueVideo(YOUTUBE_VIDEO_ID);
-        //}
-        // && onInitializationFailure :
-        //add Toast.makeText(this, "Cannot initialize Youtube player",
-        //Toast.LENGTH_LONG).show();
-
+        ;
+    }
         private YouTubePlayer.PlaybackEventListener playbackEventListener = new YouTubePlayer.PlaybackEventListener() {
             @Override
             public void onPlaying() {
@@ -101,4 +112,4 @@ public class YoutubeActivity implements YouTubePlayer.OnInitializedListener {
 //        });
     }
 
-}
+
