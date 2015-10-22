@@ -13,7 +13,7 @@ public class StandaloneActivity extends AppCompatActivity implements View.OnClic
 
     private String GOOGLE_API_KEY = "AIzaSyAIAotGMKcwWybFik6mP68UESl99soweog";
     private String YOUTUBE_VIDEO_ID = "q6-ZGAGcJrk";
-    private String YOUTUBE_PLAYLIST_ID = "XfI7gSO-Fgc&list=PL2fx9XU08mBIk4Ti9sCa8qcH8xDrB7eQW";
+    private String YOUTUBE_PLAYLIST_ID = "PLE_-2rZv8j2ro-QgxzK9nvi9O61dgE-Hx";
 
     private Button btnPlayVideo;
     private Button btnPlaylist;
