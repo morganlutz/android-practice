@@ -12,7 +12,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Parse XML File"
+        android:text="@string/title"
         android:id="@+id/btnParse"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -27,5 +27,5 @@
         android:layout_alignParentStart="false"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="" />
+        android:layout_alignParentRight="true" />
 </RelativeLayout>
