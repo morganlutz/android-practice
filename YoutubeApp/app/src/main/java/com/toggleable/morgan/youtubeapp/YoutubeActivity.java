@@ -5,8 +5,8 @@ import android.widget.Toast;
 
 public class YoutubeActivity implements YouTubePlayer.OnInitializedListener {
 
-    private String GOOGLE_API_KEY = "TBA";
-    private String YOUTUBE_VIDEO_ID = "TBA";
+    private String GOOGLE_API_KEY = "AIzaSyAIAotGMKcwWybFik6mP68UESl99soweog";
+    private String YOUTUBE_VIDEO_ID = "q6-ZGAGcJrk";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
