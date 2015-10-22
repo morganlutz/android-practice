@@ -8,7 +8,7 @@
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_main"
-    tools:context="com.togglabe.morgan.youtubeapp.MainActivity">
+    tools:context="com.toggleabe.morgan.youtubeapp.MainActivity">
     <Button
         android:id="@+id/btnPlaySingle"
         android:layout_width="wrap_content"

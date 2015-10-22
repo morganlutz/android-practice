@@ -8,7 +8,7 @@
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_standalone"
-    tools:context="com.timbuchalka.youtubeplayer.StandaloneActivity">
+    tools:context="com.toggleable.morgan.youtubeapp.StandaloneActivity">
     <Button
         android:id="@+id/btnPlayVideo"
         android:layout_width="wrap_content"
