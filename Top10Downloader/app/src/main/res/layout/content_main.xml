@@ -9,6 +9,23 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_main" tools:context=".MainActivity">
 
-    <TextView android:id="@+id/xmlTextView" android:text="Hello World!" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parse XML File"
+        android:id="@+id/btnParse"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/xmlListView"
+        android:layout_below="@+id/btnParse"
+        android:layout_marginTop="29dp"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="" />
 </RelativeLayout>
