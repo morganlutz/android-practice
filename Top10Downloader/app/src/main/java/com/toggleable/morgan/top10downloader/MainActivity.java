@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        DownloadData downloadData = new DownloadData();
+        downloadData.execute("http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=10/xml");
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +72,12 @@ public class MainActivity extends AppCompatActivity {
             return mFileContents;
         }
 
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            Log.d("DownloadData", "Result was " + result);
+        }
+
         private String downloadXMLFile(String urlPath) {
             StringBuilder tempBuffer = new StringBuilder();
             try {
@@ -91,10 +99,14 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 return tempBuffer.toString();
-                
+
             } catch(IOException e) {
                 Log.d("DownloadData", "IO Exception reading data: " + e.getMessage());
+            } catch(SecurityException e) {
+                Log.d("DownloadData", "Security exception. Needs permissions? " + e.getMessage());
             }
+
+            return null;
         }
     }
 
