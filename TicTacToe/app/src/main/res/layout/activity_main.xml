@@ -134,9 +134,9 @@
         android:padding="30dp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:alpha="0"
         android:id="@+id/playAgainLayout"
-        android:focusableInTouchMode="false">
+        android:focusableInTouchMode="false"
+        android:visibility="invisible">
 
         <TextView
             android:layout_width="wrap_content"
