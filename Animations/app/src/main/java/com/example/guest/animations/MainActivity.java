@@ -14,15 +14,45 @@ public class MainActivity extends AppCompatActivity {
     //crossfade examples
     public void fade(View view) {
         ImageView space1 = (ImageView) findViewById(R.id.space1);
-        ImageView space2 = (ImageView) findViewById(R.id.space2);
-        space1.animate().alpha(0f).setDuration(2000);
-        space2.animate().alpha(1f).setDuration(2000);
+        //cut size in half
+        space1.animate()
+                .translationXBy(1000f)
+                .translationYBy(1000f)
+                .rotationBy(3600)
+                .setDuration(2000);
+
+
+        //spin upside down. Larger the number, more spins//
+//        space1.animate().rotation(180f).setDuration(2000);
+
+
+
+        //animates off screen down. Negative # animates offscreen up
+        //space1.animate().translationYBy(2000f).setDuration(2000);
+
+        //animates to the right
+//        space1.animate().translationXBy(2000f).setDuration(2000);
+        //animate with negative number moves to the left
+        //space1.animate().translationXBy(-2000f).setDuration(2000);
+
+//        fade into new picture:
+//        ImageView space2 = (ImageView) findViewById(R.id.space2);
+//        space2.animate().alpha(1f).setDuration(2000);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        /*
+        ImageView space1 = (ImageView) findViewById(R.id.space1);
+        animates picture onto screen on start up
+        space1.setTranslationX(-1000);
+        */
+
+        ImageView space1 = (ImageView) findViewById(R.id.space1);
+        space1.setTranslationX(-1000f);
+        space1.setTranslationY(-1000f);
     }
 
     @Override
