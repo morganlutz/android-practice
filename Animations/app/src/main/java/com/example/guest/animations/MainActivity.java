@@ -12,18 +12,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     //crossfade examples
-    public void fadeSpace1(View view) {
+    public void fade(View view) {
         ImageView space1 = (ImageView) findViewById(R.id.space1);
         ImageView space2 = (ImageView) findViewById(R.id.space2);
         space1.animate().alpha(0f).setDuration(2000);
         space2.animate().alpha(1f).setDuration(2000);
-    }
-
-    public void fadeSpace2(View view) {
-        ImageView space1 = (ImageView) findViewById(R.id.space1);
-        ImageView space2 = (ImageView) findViewById(R.id.space2);
-        space2.animate().alpha(0f).setDuration(2000);
-        space1.animate().alpha(1f).setDuration(2000);
     }
 
     @Override
