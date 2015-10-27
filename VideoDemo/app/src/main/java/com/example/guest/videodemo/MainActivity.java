@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.VideoView;
-import android.widget.MediaController
+import android.widget.MediaController;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
         MediaController mediaController = new MediaController(this);
 
         mediaController.setAnchorView(video);
+
+        video.setMediaController(mediaController);
 
         video.start();
     }
