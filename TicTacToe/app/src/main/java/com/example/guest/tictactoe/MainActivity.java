@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     String winner = "Red";
 
                     if (gameState[winningPosition[0]] == 0) {
-                        winner = "Yellow!";
+                        winner = "Yellow";
                     }
 
                     TextView winnerMessage = (TextView) findViewById(R.id.txtEndGame);
@@ -60,6 +61,23 @@ public class MainActivity extends AppCompatActivity {
                     layout.setVisibility(View.VISIBLE);
                 }
             }
+        }
+    }
+
+    public void playAgain(View view) {
+        LinearLayout layout = (LinearLayout) findViewById(R.id.playAgainLayout);
+        layout.setVisibility(View.INVISIBLE);
+        activePlayer = 0;
+       //reset gameState
+        for (int i = 0; i < gameState.length; i++) {
+            gameState[i] = 2;
+        }
+
+        GridLayout gridLayout = (GridLayout) findViewById(R.id.gridLayout);
+        //getChildCount = how many views inside layout
+        for (int i = 0; i < gridLayout.getChildCount(); i++) {
+            //setImageResource = set image to nothing
+            ((ImageView) gridLayout.getChildAt(i)).setImageResource(0);
         }
     }
 
