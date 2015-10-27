@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     int activePlayer = 0;
     //0 = yellow, 1= red
 
+    boolean gameIsActive = true;
+
     int[] gameState = {2, 2, 2, 2, 2, 2, 2, 2, 2};
     //2 means unplayed
 
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(counter.getTag().toString());
         int tappedCounter = Integer.parseInt(counter.getTag().toString());
 
-        if (gameState[tappedCounter] == 2) {
+        if (gameState[tappedCounter] == 2 && gameIsActive) {
 
             gameState[tappedCounter] = activePlayer;
 
@@ -48,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
                         gameState[winningPosition[1]] == gameState[winningPosition[2]] &&
                         gameState[winningPosition[0]] != 2) {
 
+                    gameIsActive = false;
+
                     String winner = "Red";
 
                     if (gameState[winningPosition[0]] == 0) {
@@ -59,12 +63,33 @@ public class MainActivity extends AppCompatActivity {
 
                     LinearLayout layout = (LinearLayout) findViewById(R.id.playAgainLayout);
                     layout.setVisibility(View.VISIBLE);
+                } else {
+
+                    boolean gameIsOver = true;
+
+                    for (int counterState : gameState) {
+                        if (counterState == 2)
+                            gameIsOver = false;
+
+                    }
+
+                        if(gameIsOver) {
+                            TextView winnerMessage = (TextView) findViewById(R.id.txtEndGame);
+                            winnerMessage.setText("It's a tie!");
+
+                            LinearLayout layout = (LinearLayout) findViewById(R.id.playAgainLayout);
+                            layout.setVisibility(View.VISIBLE);
+                        }
+
                 }
             }
         }
     }
 
     public void playAgain(View view) {
+
+        gameIsActive = true;
+
         LinearLayout layout = (LinearLayout) findViewById(R.id.playAgainLayout);
         layout.setVisibility(View.INVISIBLE);
         activePlayer = 0;
