@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -51,19 +52,31 @@ public class MainActivity extends AppCompatActivity implements
             return true;
         }else if(id == R.id.sign_out_button){
             onSignOutClicked();
+        }else if(id == R.id.map_button) {
+            goToMap();
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+    private void goToMap() {
+        Intent intent = new Intent(MainActivity.this, MapActivity.class);
+        startActivity(intent);
+    }
+
     private void onSignOutClicked() {
         //clear the default account so that googleapiclient will not automatically
         //connect in the future.
+        Toast.makeText(MainActivity.this, "Testing", Toast.LENGTH_LONG).show();
+
+
         if(LoginActivity.mGoogleApiClient.isConnected()) {
+            Toast.makeText(MainActivity.this, "Testing", Toast.LENGTH_LONG).show();
             Plus.AccountApi.clearDefaultAccount(LoginActivity.mGoogleApiClient);
             LoginActivity.mGoogleApiClient.disconnect();
+//            LoginActivity.mGoogleApiClient.connect();
         }
-
+        LoginActivity.mGoogleApiClient = null;
         showSignedOutUI();
     }
 

@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.google.android.gms.common.ConnectionResult;
@@ -32,7 +33,7 @@ public class LoginActivity extends Activity implements
     private static final int RC_PERM_GET_ACCOUNTS = 2;
     private static final String KEY_IS_RESOLVING = "is_resolving";
     private static final String KEY_SHOULD_RESOLVE = "should_resolve";
-    public static GoogleApiClient mGoogleApiClient;
+    protected static GoogleApiClient mGoogleApiClient;
     private TextView mStatus;
     private boolean mIsResolving = false;
     private boolean mShouldResolve = false;
@@ -108,17 +109,24 @@ public class LoginActivity extends Activity implements
         // onConnected indicates that an account was selected on the device, that the selected
         // account has granted any requested permissions to our app and that we were able to
         // establish a service connection to Google Play services.
-        Log.d(TAG, "onConnected: " + bundle);
-        mShouldResolve = false;
-        //show the signed-in UI
+//        if (bundle != null) {
+            Log.d(TAG, "onConnected: " + bundle);
+            mShouldResolve = false;
+            //show the signed-in UI
 
-        showSignedInUI();
-
+            showSignedInUI();
+//        } else {
+            // Toast.makeText(LoginActivity.this, "fix this", Toast.LENGTH_LONG).show();
+//        }
     }
 
     private void showSignedInUI() {
+        Person currentPerson = Plus.PeopleApi.getCurrentPerson(mGoogleApiClient);
+        Toast.makeText(LoginActivity.this, currentPerson.getDisplayName(), Toast.LENGTH_LONG).show();
+
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
+        isLogIn = true;
     }
 
     @Override
@@ -169,7 +177,7 @@ public class LoginActivity extends Activity implements
         //attempt to resolve any errors that occur
         mShouldResolve = true;
         mGoogleApiClient.connect();
-        isLogIn = true;
+
 
         //show a message to the user that we are signing in
         //mStatus.setText(R.string.signing_in);

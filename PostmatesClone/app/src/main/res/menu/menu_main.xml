@@ -10,4 +10,8 @@
             android:title="@string/action_logout"
             android:orderInCategory="100"
             app:showAsAction="never"/>
+      <item android:id="@+id/map_button"
+            android:title="Find Yourself"
+            android:orderInCategory="100"
+            app:showAsAction="never"/>
 </menu>

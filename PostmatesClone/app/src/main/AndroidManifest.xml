@@ -39,12 +39,16 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyCfy7Qs0e3dr48pZkNJxDysUuAPsnhQ9O8" />
 
         <activity
             android:name=".ui.LoginActivity"
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="adjustResize|stateVisible" >
+        </activity>
+        <activity
+            android:name=".ui.MapActivity"
+            android:label="@string/title_activity_google_map" >
         </activity>
     </application>
 
