@@ -20,13 +20,15 @@ public class MainActivity extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener{
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if(!isLogIn()){
+        if(!LoginActivity.isLogIn){
             showSignedOutUI();
+
         }
     }
 
@@ -70,9 +72,6 @@ public class MainActivity extends AppCompatActivity implements
         startActivity(intent);
     }
 
-    public boolean isLogIn() {
-        return false;
-    }
 
     @Override
     public void onConnected(Bundle bundle) {

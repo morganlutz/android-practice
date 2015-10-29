@@ -29,7 +29,6 @@ public class User extends AsyncTask<Void, Void, String> {
         mUserImage = userImage;
     }
 
-
     @Override
     protected String doInBackground(Void... params) {
         return null;

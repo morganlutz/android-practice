@@ -21,9 +21,7 @@ import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
 import com.toggleable.morgan.postmatesclone.R;
 
-/**
- * A login screen that offers login via email/password.
- */
+
 public class LoginActivity extends Activity implements
         LoaderCallbacks<Cursor>,
         GoogleApiClient.ConnectionCallbacks,
@@ -39,6 +37,8 @@ public class LoginActivity extends Activity implements
     private boolean mIsResolving = false;
     private boolean mShouldResolve = false;
     private static final String TAG = "LOGIN_ACTIVITY";
+    public static boolean isLogIn = false;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -112,13 +112,17 @@ public class LoginActivity extends Activity implements
         mShouldResolve = false;
         //show the signed-in UI
 
-        showSignedOutUI();
+        showSignedInUI();
 
+    }
+
+    private void showSignedInUI() {
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 
     @Override
     public void onConnectionSuspended(int i) {
-
     }
 
     @Override
@@ -133,7 +137,6 @@ public class LoginActivity extends Activity implements
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-
     }
 
     @Override
@@ -166,9 +169,10 @@ public class LoginActivity extends Activity implements
         //attempt to resolve any errors that occur
         mShouldResolve = true;
         mGoogleApiClient.connect();
+        isLogIn = true;
 
         //show a message to the user that we are signing in
-        mStatus.setText(R.string.signing_in);
+        //mStatus.setText(R.string.signing_in);
     }
 
 
