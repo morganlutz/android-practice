@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Postmates Clone</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="signing_in">Signing in!</string>
+    <string name="title_activity_adadfa">adadfa</string>
+    <string name="action_logout">Log Out</string>
+</resources>
