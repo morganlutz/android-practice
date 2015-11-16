@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:singleLine="true"
+        android:id="@+id/fragment_login_userName"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:id="@+id/fragment_login_password"
+        android:singleLine="true"
+        android:inputType="textPassword"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@id/fragment_login_userName"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log in"
+        android:layout_below="@id/fragment_login_password"
+        android:background="@color/primary_color_darker"
+        android:textColor="#FFFFFF"
+        android:id="@+id/fragment_login_loginButton"/>
+
+</RelativeLayout>
