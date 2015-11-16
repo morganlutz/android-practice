@@ -20,6 +20,11 @@
         <activity android:name=".ui.LoginActivity" />
 
         <activity android:name=".ui.LoginNarrowActivity"/>
+
+        <activity android:name=".ui.RegisterActivity"/>
+
+        <activity android:name=".ui.ExternalLoginActivity"/>
+
     </application>
 
 </manifest>
